@@ -43,14 +43,14 @@ var MaxStrings = 100;
 
 var inputArray = new string[MaxStrings];
 
-System.Console.WriteLine("Введите строки в массив (не более 100):");
+Console.WriteLine("Введите строки в массив (не более 100):");
 
 var k = 0;
 while (true)
 {
     if (k >= MaxStrings)
     {
-        System.Console.WriteLine("Ошибка! Введено слишком много строк");
+        Console.WriteLine("Ошибка! Введено слишком много строк");
         return;
     }
 
@@ -65,15 +65,19 @@ while (true)
 
 void PrintStringArray(string[] arr)
 {
-    System.Console.Write("[");
-    System.Console.Write(string.Join(", ", arr));
-    System.Console.WriteLine("]");
+    Console.Write("[");
+    Console.Write(string.Join(", ", arr.Select(x => $"\"{x}\"")));
+    Console.WriteLine("]");
 }
 
-inputArray = new[] { "Hello", "2", "world", ":-)" };
-k = 4;
-//     [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
-//     [“Russia”, “Denmark”, “Kazan”] → []
+// inputArray = new[] { "Hello", "2", "world", ":-)" };
+// k = 4;
+
+// inputArray = new[] { "1234", "1567", "-2", "computer science" };
+// k = 4;
+
+// // inputArray = new[] { "Russia", "Denmark", "Kazan" };
+// // k = 3;
 
 var array = ShrinkArray(inputArray, k);
 PrintStringArray(array);
