@@ -39,6 +39,14 @@ string[] FilterStringsArray(string[] array)
     return ShrinkArray(resultArray, resultIndex);
 }
 
+void PrintStringArray(string[] arr)
+{
+    Console.Write("[");
+    Console.Write(string.Join(", ", arr.Select(x => $"\"{x}\"")));
+    Console.WriteLine("]");
+}
+
+
 var MaxStrings = 100;
 
 var inputArray = new string[MaxStrings];
@@ -61,13 +69,6 @@ while (true)
 
     inputArray[k] = s;
     k++;
-}
-
-void PrintStringArray(string[] arr)
-{
-    Console.Write("[");
-    Console.Write(string.Join(", ", arr.Select(x => $"\"{x}\"")));
-    Console.WriteLine("]");
 }
 
 var array = ShrinkArray(inputArray, k);
