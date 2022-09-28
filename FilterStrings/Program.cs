@@ -48,16 +48,16 @@ Console.WriteLine("Введите строки в массив (не более 
 var k = 0;
 while (true)
 {
+    Console.Write("Строка: ");
+    var s = Console.ReadLine();
+    if (string.IsNullOrEmpty(s))
+        break;
+
     if (k >= MaxStrings)
     {
         Console.WriteLine("Ошибка! Введено слишком много строк");
         return;
     }
-
-    Console.Write("Строка: ");
-    var s = Console.ReadLine();
-    if (string.IsNullOrEmpty(s))
-        break;
 
     inputArray[k] = s;
     k++;
@@ -69,15 +69,6 @@ void PrintStringArray(string[] arr)
     Console.Write(string.Join(", ", arr.Select(x => $"\"{x}\"")));
     Console.WriteLine("]");
 }
-
-// inputArray = new[] { "Hello", "2", "world", ":-)" };
-// k = 4;
-
-// inputArray = new[] { "1234", "1567", "-2", "computer science" };
-// k = 4;
-
-// // inputArray = new[] { "Russia", "Denmark", "Kazan" };
-// // k = 3;
 
 var array = ShrinkArray(inputArray, k);
 PrintStringArray(array);
